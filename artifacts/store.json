@@ -1,0 +1,51 @@
+{
+    "assetsUrlPrefix": "/assets",
+    "extensionsUrlPrefix": "/extensions",
+    "subscriptionsUrlPrefix": "/subscriptions",
+    "tenantConfigs": "/_system/config/store/configs/store.json",
+    "socialCommentsEnable": true,
+    "cached": false,
+    "rxt": {
+        "CONFIG_BASE_PATH": "/_system/config/store/configs/",
+        "EXTENSION_PATH": "extensions/assets/",
+        "ASSET_SCRIPT_PATH": "/asset.js",
+        "DEFAULT_ASSET_SCRIPT": "/extensions/assets/default/asset.js"
+    },
+    "server": {
+        "https": "https://docker.machine:9443",
+        "http": "http://docker.machine:9763"
+    },
+    "lifeCycleBehaviour": {
+        "visibleIn": ["Published"]
+    },
+    "socialAppConnectionInfo": {
+        "script": "https://docker.machine:9443/social/export-js/social.js",
+        "scriptType": "text/javascript",
+        "socialAppUrl": "../../../social/"
+    },
+    "authentication": {
+        "activeMethod": "basic",
+        "methods": {
+            "sso": {
+                "attributes": {
+                    "issuer": "store",
+                    "identityProviderURL": "https://docker.machine:9443/samlsso",
+                    "responseSigningEnabled": "true",
+                    "acs": "https://docker.machine:9443/store/acs",
+                    "identityAlias": "wso2carbon",
+                    "useTenantKey": false
+                }
+            },
+            "basic": {
+                "attributes": {
+                    "loginURL":"https://docker.machine:9443/store/pages/basic-auth-login"
+                }
+            }
+        }
+    },
+    "metrics":{
+        "enabled":false,
+        "enableTraceLogs":false
+    },
+    "version": "5.2.0"
+}

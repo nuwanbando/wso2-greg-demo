@@ -1,0 +1,21 @@
+version: '2'
+services:
+  database:
+    container_name: database
+    build: 
+        context: .
+        dockerfile: database/Dockerfile
+    ports:
+     - "3306:3306"
+    environment:
+        MYSQL_ROOT_PASSWORD: root
+  greg:
+    container_name: greg
+    depends_on: 
+      - database
+    build:
+      context: .
+      dockerfile: greg/Dockerfile
+    ports:
+      - "9763:9763"
+      - "9443:9443"
