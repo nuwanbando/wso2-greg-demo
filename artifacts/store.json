@@ -12,14 +12,16 @@
         "DEFAULT_ASSET_SCRIPT": "/extensions/assets/default/asset.js"
     },
     "server": {
-        "https": "https://docker.machine:9443",
-        "http": "http://docker.machine:9763"
+        "https": "https://greg.wso2.com:9443",
+        "http": "http://greg.wso2.com:9763",
+        "context" : "/store",
+        "proxyServer" : ""
     },
     "lifeCycleBehaviour": {
         "visibleIn": ["Published"]
     },
     "socialAppConnectionInfo": {
-        "script": "https://docker.machine:9443/social/export-js/social.js",
+        "script": "https://greg.wso2.com:9443/social/export-js/social.js",
         "scriptType": "text/javascript",
         "socialAppUrl": "../../../social/"
     },
@@ -29,23 +31,31 @@
             "sso": {
                 "attributes": {
                     "issuer": "store",
-                    "identityProviderURL": "https://docker.machine:9443/samlsso",
-                    "responseSigningEnabled": "true",
-                    "acs": "https://docker.machine:9443/store/acs",
+                    "identityProviderURL": "https://greg.wso2.com:9443/samlsso",
+                    "responseSigningEnabled": true,
+                    "acs": "https://greg.wso2.com:9443/store/acs",
                     "identityAlias": "wso2carbon",
-                    "useTenantKey": false
+                    "defaultNameIDPolicy": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+                    "useTenantKey": false,
+                    "isPassive":false,
+                    "validateAssertionValidityPeriod": true,
+                    "validateAudienceRestriction": true,
+                    "assertionSigningEnabled": true
                 }
             },
             "basic": {
                 "attributes": {
-                    "loginURL":"https://docker.machine:9443/store/pages/basic-auth-login"
+                    "loginURL":"https://greg.wso2.com:9443/store/pages/basic-auth-login"
                 }
             }
         }
+    },
+    "search": {
+        "defaultSearchTemplate":"name=*$input* OR *$input*"
     },
     "metrics":{
         "enabled":false,
         "enableTraceLogs":false
     },
-    "version": "5.2.0"
+    "version": "5.4.0"
 }

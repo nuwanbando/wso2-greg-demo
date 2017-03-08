@@ -8,10 +8,10 @@ until $(curl --output /dev/null --silent --head --fail http://localhost:9763); d
 done
 
 #populates the asset defintions
-cd /wso2/wso2greg-5.2.0/samples/asset-models/Populator/ && ant
+cd /wso2/wso2greg-5.4.0/samples/asset-models/Populator/ && ant
 
 #populate the data
-cd /wso2/wso2greg-5.2.0/samples/getting_started/ && ant
+cd /wso2/wso2greg-5.4.0/samples/getting_started/ && ant
 
 #tail the log
-tail -f /wso2/wso2greg-5.2.0/repository/logs/wso2carbon.log
+tail -f /wso2/wso2greg-5.4.0/repository/logs/wso2carbon.log
